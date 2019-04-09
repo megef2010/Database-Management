@@ -8,9 +8,10 @@
 	$username = $myDB->real_escape_string($username);
 	$password = $_POST['password'];
 	$password = md5($password);
-
 	
-	if($myDB->query("SELECT COUNT(*) FROM users WHERE name = '$username' AND password = '$password'") !== 1){
+	$checkpw = mysqli_fetch_array($myDB->query("SELECT COUNT(*) FROM users WHERE name = '$username'"));
+	
+	if($checkpw[0] === '0'){
 
 		session_unset();
 		session_destroy();
