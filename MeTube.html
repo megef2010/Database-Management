@@ -24,11 +24,11 @@
 		<?php
 			session_start();
 
-			$myDB = mysql_connect('local host', 'root', 'password or blank if none');
+			$myDB = mysql_connect('metube-1223456.duckdns.org', 'root', '');
 			mysql_select_database('name');
 
 			$id = "Politics";
-			$sqlq = "SELECT Thumbnail FROM Media Where Category='$id'";
+			$sqlq = "SELECT thumbnail FROM media WHERE category='$id'";
 			$result = mysql_query($sqlq);
 			echo "<table>";
 			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
@@ -44,11 +44,11 @@
 		<?php
 			session_start();
 
-			$myDB = mysql_connect('local host', 'root', 'password or blank if none');
+			$myDB = mysql_connect('metube-1223456.duckdns.org', 'root', '');
 			mysql_select_database('name');
 
 			$id = "Entertainment";
-			$sqlq = "SELECT Thumbnail FROM Media Where Category='$id'";
+			$sqlq = "SELECT thumbnail FROM media WHERE category='$id'";
 			$result = mysql_query($sqlq);
 			echo "<table>";
 			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
@@ -56,7 +56,7 @@
 			}
 
 			echo "</table>";
-			mysql_close();
+			mysql_close($myDB);
 			
 		?></div>
 	<h3>Gaming</h3>
@@ -64,11 +64,11 @@
 	<?php
 			session_start();
 
-			$myDB = mysql_connect('local host', 'root', 'password or blank if none');
+			$myDB = mysql_connect('metube-1223456.duckdns.org', 'root', '');
 			mysql_select_database('name');
 
 			$id = "Gaming";
-			$sqlq = "SELECT Thumbnail FROM Media Where Category='$id'";
+			$sqlq = "SELECT thumbnail FROM media WHERE category='$id'";
 			$result = mysql_query($sqlq);
 			echo "<table>";
 			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
@@ -76,7 +76,7 @@
 			}
 
 			echo "</table>";
-			mysql_close();
+			mysql_close($myDB);
 			
 		?></div>
 	<h3>Sports</h3>
@@ -84,11 +84,11 @@
 	<?php
 			session_start();
 
-			$myDB = mysql_connect('local host', 'root', 'password or blank if none');
+			$myDB = mysql_connect('metube-1223456.duckdns.org', 'root', '');
 			mysql_select_database('name');
 
 			$id = "Sports";
-			$sqlq = "SELECT Thumbnail FROM Media Where Category='$id'";
+			$sqlq = "SELECT thumbnail FROM media WHERE category='$id'";
 			$result = mysql_query($sqlq);
 			echo "<table>";
 			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
@@ -96,7 +96,7 @@
 			}
 
 			echo "</table>";
-			mysql_close();
+			mysql_close($myDB);
 			
 		?></div>
 	<h3>Music</h3>
@@ -104,11 +104,11 @@
 	<?php
 			session_start();
 
-			$myDB = mysql_connect('local host', 'root', 'password or blank if none');
+			$myDB = mysql_connect('metube-1223456.duckdns.org', 'root', '');
 			mysql_select_database('name');
 
 			$id = "Music";
-			$sqlq = "SELECT Thumbnail FROM Media Where Category='$id'";
+			$sqlq = "SELECT thumbnail FROM media WHERE category='$id'";
 			$result = mysql_query($sqlq);
 			echo "<table>";
 			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
@@ -116,7 +116,7 @@
 			}
 
 			echo "</table>";
-			mysql_close();
+			mysql_close($myDB);
 			
 		?></div>
 	<h3>Movies</h3>
@@ -124,11 +124,11 @@
 	<?php
 			session_start();
 
-			$myDB = mysql_connect('local host', 'root', 'password or blank if none');
+			$myDB = mysql_connect('metube-1223456.duckdns.org', 'root', '');
 			mysql_select_database('name');
 
 			$id = "Movies";
-			$sqlq = "SELECT Thumbnail FROM Media Where Category='$id'";
+			$sqlq = "SELECT thumbnail FROM media WHERE category='$id'";
 			$result = mysql_query($sqlq);
 			echo "<table>";
 			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
@@ -136,18 +136,18 @@
 			}
 
 			echo "</table>";
-			mysql_close();
+			mysql_close($myDB);
 			
 		?></div>
 	<h3>TV Shows</h3>
 	<div id="ShoScroll"><?php
 			session_start();
 
-			$myDB = mysql_connect('local host', 'root', 'password or blank if none');
+			$myDB = mysql_connect('metube-1223456.duckdns.org', 'root', '');
 			mysql_select_database('name');
 
 			$id = "TV Shows";
-			$sqlq = "SELECT Thumbnail FROM Media Where Category='$id'";
+			$sqlq = "SELECT thumbnail FROM media WHERE category='$id'";
 			$result = mysql_query($sqlq);
 			echo "<table>";
 			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
@@ -155,7 +155,7 @@
 			}
 
 			echo "</table>";
-			mysql_close();
+			mysql_close($myDB);
 			
 		?></div>
 	<h3>News</h3>
@@ -163,11 +163,11 @@
 	<?php
 			session_start();
 
-			$myDB = mysql_connect('local host', 'root', 'password or blank if none');
+			$myDB = mysql_connect('metube-1223456.duckdns.org', 'root', '');
 			mysql_select_database('name');
 
 			$id = "News";
-			$sqlq = "SELECT Thumbnail FROM Media Where Category='$id'";
+			$sqlq = "SELECT thumbnail FROM media WHERE category='$id'";
 			$result = mysql_query($sqlq);
 			echo "<table>";
 			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
@@ -175,7 +175,7 @@
 			}
 
 			echo "</table>";
-			mysql_close();
+			mysql_close($myDB);
 			
 		?></div>
 	<h3>Spotlight</h3>
@@ -183,11 +183,11 @@
 	<?php
 			session_start();
 
-			$myDB = mysql_connect('local host', 'root', 'password or blank if none');
+			$myDB = mysql_connect('metube-1223456.duckdns.org', 'root', '');
 			mysql_select_database('name');
 
 			$id = "Spotlight";
-			$sqlq = "SELECT Thumbnail FROM Media Where Category='$id'";
+			$sqlq = "SELECT thumbnail FROM media WHERE category='$id'";
 			$result = mysql_query($sqlq);
 			echo "<table>";
 			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
@@ -195,7 +195,7 @@
 			}
 
 			echo "</table>";
-			mysql_close();
+			mysql_close($myDB);
 			
 		?></div>
 </body>
