@@ -2,7 +2,7 @@
 	session_start();
 	session_name($MeTubeSignedIn);
 
-	$myDB = new mysqli("mysql1.'URL HERE'", "DATABASE Information", "", "");
+	$myDB = new mysqli("mysql1.'http://metube-1223456.duckdns.org/'", "metube", "SuperSecurePassword");
 
 	function getDB(){
 		//file path to json file
