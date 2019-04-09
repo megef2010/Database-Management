@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>MeTube</title>
+<link rel="stylesheet" type="text/css" href="../MeTube.css"> 
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+</head>
+
+<body>
+	<h1>MeTube Logo <img src="../accountimg.jpg" width="100" height="54" align="right" onClick="gotosignin.php"></h1>
+	<form class="search" action="../search.php" method="post"><!-- Links to PHP file for searching database. --><h2>Best of MeTube
+		<input type="text" placeholder="" name="searchbar">
+		<button type="submit">
+			<i class="fa fa-search">Search</i>
+		</button></h2>
+		</form>
+	<!-- Template for Homepage. Horizontal scrollbar with videos displayed under each category title. -->
+	<h3>Politics</h3>
+	<div id="PolScroll">
+		<?php
+			session_start();
+
+			$myDB = mysql_connect('local host', 'root', 'password or blank if none');
+			mysql_select_database('name');
+
+			$id = "Politics";
+			$sqlq = "SELECT Thumbnail FROM Media Where Category='$id'";
+			$result = mysql_query($sqlq);
+			echo "<table>";
+			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
+				echo "<td>" . $col['Thumbnail'] . "</td>";  //$col['index'] the index here is a field name
+			}
+
+			echo "</table>";
+			mysql_close($myDB);
+			
+		?><!-- Insert videos or thumbnails here with PHP. --></div>
+	<h3>Entertainment</h3>
+	<div id="EntScroll">
+		<?php
+			session_start();
+
+			$myDB = mysql_connect('local host', 'root', 'password or blank if none');
+			mysql_select_database('name');
+
+			$id = "Entertainment";
+			$sqlq = "SELECT Thumbnail FROM Media Where Category='$id'";
+			$result = mysql_query($sqlq);
+			echo "<table>";
+			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
+				echo "<td>" . $col['Thumbnail'] . "</td>";  //$col['index'] the index here is a field name
+			}
+
+			echo "</table>";
+			mysql_close();
+			
+		?></div>
+	<h3>Gaming</h3>
+	<div id="GamScroll">
+	<?php
+			session_start();
+
+			$myDB = mysql_connect('local host', 'root', 'password or blank if none');
+			mysql_select_database('name');
+
+			$id = "Gaming";
+			$sqlq = "SELECT Thumbnail FROM Media Where Category='$id'";
+			$result = mysql_query($sqlq);
+			echo "<table>";
+			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
+				echo "<td>" . $col['Thumbnail'] . "</td>";  //$col['index'] the index here is a field name
+			}
+
+			echo "</table>";
+			mysql_close();
+			
+		?></div>
+	<h3>Sports</h3>
+	<div id="SpoScroll">
+	<?php
+			session_start();
+
+			$myDB = mysql_connect('local host', 'root', 'password or blank if none');
+			mysql_select_database('name');
+
+			$id = "Sports";
+			$sqlq = "SELECT Thumbnail FROM Media Where Category='$id'";
+			$result = mysql_query($sqlq);
+			echo "<table>";
+			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
+				echo "<td>" . $col['Thumbnail'] . "</td>";  //$col['index'] the index here is a field name
+			}
+
+			echo "</table>";
+			mysql_close();
+			
+		?></div>
+	<h3>Music</h3>
+	<div id="MusScroll">
+	<?php
+			session_start();
+
+			$myDB = mysql_connect('local host', 'root', 'password or blank if none');
+			mysql_select_database('name');
+
+			$id = "Music";
+			$sqlq = "SELECT Thumbnail FROM Media Where Category='$id'";
+			$result = mysql_query($sqlq);
+			echo "<table>";
+			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
+				echo "<td>" . $col['Thumbnail'] . "</td>";  //$col['index'] the index here is a field name
+			}
+
+			echo "</table>";
+			mysql_close();
+			
+		?></div>
+	<h3>Movies</h3>
+	<div id="MovScroll">
+	<?php
+			session_start();
+
+			$myDB = mysql_connect('local host', 'root', 'password or blank if none');
+			mysql_select_database('name');
+
+			$id = "Movies";
+			$sqlq = "SELECT Thumbnail FROM Media Where Category='$id'";
+			$result = mysql_query($sqlq);
+			echo "<table>";
+			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
+				echo "<td>" . $col['Thumbnail'] . "</td>";  //$col['index'] the index here is a field name
+			}
+
+			echo "</table>";
+			mysql_close();
+			
+		?></div>
+	<h3>TV Shows</h3>
+	<div id="ShoScroll"><?php
+			session_start();
+
+			$myDB = mysql_connect('local host', 'root', 'password or blank if none');
+			mysql_select_database('name');
+
+			$id = "TV Shows";
+			$sqlq = "SELECT Thumbnail FROM Media Where Category='$id'";
+			$result = mysql_query($sqlq);
+			echo "<table>";
+			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
+				echo "<td>" . $col['Thumbnail'] . "</td>";  //$col['index'] the index here is a field name
+			}
+
+			echo "</table>";
+			mysql_close();
+			
+		?></div>
+	<h3>News</h3>
+	<div id="NewScroll">
+	<?php
+			session_start();
+
+			$myDB = mysql_connect('local host', 'root', 'password or blank if none');
+			mysql_select_database('name');
+
+			$id = "News";
+			$sqlq = "SELECT Thumbnail FROM Media Where Category='$id'";
+			$result = mysql_query($sqlq);
+			echo "<table>";
+			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
+				echo "<td>" . $col['Thumbnail'] . "</td>";  //$col['index'] the index here is a field name
+			}
+
+			echo "</table>";
+			mysql_close();
+			
+		?></div>
+	<h3>Spotlight</h3>
+	<div id="SpotScroll">
+	<?php
+			session_start();
+
+			$myDB = mysql_connect('local host', 'root', 'password or blank if none');
+			mysql_select_database('name');
+
+			$id = "Spotlight";
+			$sqlq = "SELECT Thumbnail FROM Media Where Category='$id'";
+			$result = mysql_query($sqlq);
+			echo "<table>";
+			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
+				echo "<td>" . $col['Thumbnail'] . "</td>";  //$col['index'] the index here is a field name
+			}
+
+			echo "</table>";
+			mysql_close();
+			
+		?></div>
+</body>
+</html>
