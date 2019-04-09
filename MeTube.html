@@ -24,7 +24,7 @@
 		<?php
 			session_start();
 
-			$myDB = mysql_connect('metube-1223456.duckdns.org', 'metube', 'SuperSecurePassword');
+			$myDB = mysql_connect('localhost', 'metube', 'SuperSecurePassword');
 			mysql_select_database('name');
 
 			$id = "Politics";
@@ -32,7 +32,7 @@
 			$result = mysql_query($sqlq);
 			echo "<table>";
 			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
-				echo "<td>" . $col['Thumbnail'] . "</td>";  //$col['index'] the index here is a field name
+				echo "<td>" . $col['thumbnail'] . "</td>";  //$col['index'] the index here is a field name
 			}
 
 			echo "</table>";
@@ -44,7 +44,7 @@
 		<?php
 			session_start();
 
-			$myDB = mysql_connect('metube-1223456.duckdns.org', 'metube', 'SuperSecurePassword');
+			$myDB = mysql_connect('localhost', 'metube', 'SuperSecurePassword');
 			mysql_select_database('name');
 
 			$id = "Entertainment";
@@ -52,7 +52,7 @@
 			$result = mysql_query($sqlq);
 			echo "<table>";
 			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
-				echo "<td>" . $col['Thumbnail'] . "</td>";  //$col['index'] the index here is a field name
+				echo "<td>" . $col['thumbnail'] . "</td>";  //$col['index'] the index here is a field name
 			}
 
 			echo "</table>";
@@ -64,7 +64,7 @@
 	<?php
 			session_start();
 
-			$myDB = mysql_connect('metube-1223456.duckdns.org', 'metube', 'SuperSecurePassword');
+			$myDB = mysql_connect('localhost', 'metube', 'SuperSecurePassword');
 			mysql_select_database('name');
 
 			$id = "Gaming";
@@ -72,7 +72,7 @@
 			$result = mysql_query($sqlq);
 			echo "<table>";
 			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
-				echo "<td>" . $col['Thumbnail'] . "</td>";  //$col['index'] the index here is a field name
+				echo "<td>" . $col['thumbnail'] . "</td>";  //$col['index'] the index here is a field name
 			}
 
 			echo "</table>";
@@ -84,7 +84,7 @@
 	<?php
 			session_start();
 
-			$myDB = mysql_connect('metube-1223456.duckdns.org', 'metube', 'SuperSecurePassword');
+			$myDB = mysql_connect('localhost', 'metube', 'SuperSecurePassword');
 			mysql_select_database('name');
 
 			$id = "Sports";
@@ -92,7 +92,7 @@
 			$result = mysql_query($sqlq);
 			echo "<table>";
 			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
-				echo "<td>" . $col['Thumbnail'] . "</td>";  //$col['index'] the index here is a field name
+				echo "<td>" . $col['thumbnail'] . "</td>";  //$col['index'] the index here is a field name
 			}
 
 			echo "</table>";
@@ -104,7 +104,7 @@
 	<?php
 			session_start();
 
-			$myDB = mysql_connect('metube-1223456.duckdns.org', 'metube', 'SuperSecurePassword');
+			$myDB = mysql_connect('localhost', 'metube', 'SuperSecurePassword');
 			mysql_select_database('name');
 
 			$id = "Music";
@@ -112,7 +112,7 @@
 			$result = mysql_query($sqlq);
 			echo "<table>";
 			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
-				echo "<td>" . $col['Thumbnail'] . "</td>";  //$col['index'] the index here is a field name
+				echo "<td>" . $col['thumbnail'] . "</td>";  //$col['index'] the index here is a field name
 			}
 
 			echo "</table>";
@@ -124,7 +124,7 @@
 	<?php
 			session_start();
 
-			$myDB = mysql_connect('metube-1223456.duckdns.org', 'metube', 'SuperSecurePassword');
+			$myDB = mysql_connect('localhost', 'metube', 'SuperSecurePassword');
 			mysql_select_database('name');
 
 			$id = "Movies";
@@ -132,7 +132,7 @@
 			$result = mysql_query($sqlq);
 			echo "<table>";
 			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
-				echo "<td>" . $col['Thumbnail'] . "</td>";  //$col['index'] the index here is a field name
+				echo "<td>" . $col['thumbnail'] . "</td>";  //$col['index'] the index here is a field name
 			}
 
 			echo "</table>";
@@ -143,7 +143,7 @@
 	<div id="ShoScroll"><?php
 			session_start();
 
-			$myDB = mysql_connect('metube-1223456.duckdns.org', 'metube', 'SuperSecurePassword');
+			$myDB = mysql_connect('localhost', 'metube', 'SuperSecurePassword');
 			mysql_select_database('name');
 
 			$id = "TV Shows";
@@ -151,7 +151,7 @@
 			$result = mysql_query($sqlq);
 			echo "<table>";
 			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
-				echo "<td>" . $col['Thumbnail'] . "</td>";  //$col['index'] the index here is a field name
+				echo "<td>" . $col['thumbnail'] . "</td>";  //$col['index'] the index here is a field name
 			}
 
 			echo "</table>";
@@ -163,7 +163,7 @@
 	<?php
 			session_start();
 
-			$myDB = mysql_connect('metube-1223456.duckdns.org', 'metube', 'SuperSecurePassword');
+			$myDB = mysql_connect('localhost', 'metube', 'SuperSecurePassword');
 			mysql_select_database('name');
 
 			$id = "News";
@@ -171,7 +171,7 @@
 			$result = mysql_query($sqlq);
 			echo "<table>";
 			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
-				echo "<td>" . $col['Thumbnail'] . "</td>";  //$col['index'] the index here is a field name
+				echo "<td>" . $col['thumbnail'] . "</td>";  //$col['index'] the index here is a field name
 			}
 
 			echo "</table>";
@@ -183,7 +183,7 @@
 	<?php
 			session_start();
 
-			$myDB = mysql_connect('metube-1223456.duckdns.org', 'metube', 'SuperSecurePassword');
+			$myDB = mysql_connect('localhost', 'metube', 'SuperSecurePassword');
 			mysql_select_database('name');
 
 			$id = "Spotlight";
@@ -191,7 +191,7 @@
 			$result = mysql_query($sqlq);
 			echo "<table>";
 			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
-				echo "<td>" . $col['Thumbnail'] . "</td>";  //$col['index'] the index here is a field name
+				echo "<td>" . $col['thumbnail'] . "</td>";  //$col['index'] the index here is a field name
 			}
 
 			echo "</table>";
