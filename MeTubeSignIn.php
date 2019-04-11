@@ -43,6 +43,8 @@
 
 	$_SESSION['username'] = $username;
 	$_SESSION['userID'] = $id;
+	
+	echo $username . ", id: " . $id;
 	echo '	<a href="MeTube.php">Go To Account</a>	';
 	exit();
 ?>
