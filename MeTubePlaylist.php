@@ -8,10 +8,19 @@
 
 <body>
 	<?php include 'MeTube_GlobalHeader.php'; ?>
-
-	<!-- Template for Search Page. Vertical scrollbar with videos displayed found in PHP search. -->
+	<!-- Template for Playlist Page. Vertical scrollbar with videos displayed found in PHP search. -->
 	<div id="SeaScroll">
-	<!-- Display search results here -->
+		if(isset($_GET['id'])) {
+			$id = mysql_real_escape_string($_GET['id']);
+			$result = mysql_query("SELECT media.name, media.description FROM media JOIN playlistcontent WHERE playlistcontent.playlistid='$id' AND media.id = playlistcontent.mediaid" );
+			$row = mysql_fetch_row($result);
+		
+			echo "<table>";
+			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
+				echo "<tr><td>" . $col['name'] . "</td><td>" . $col['description'] . "</td></tr>";  //$col['index'] the index here is a field name
+			}
+			echo "</table>";
+		?>
 	</div>
 </body>
 </html>
