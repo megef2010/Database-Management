@@ -1,4 +1,4 @@
-<?php
+	<?php
 	session_name('MetubeSession');
 	session_start();
 
@@ -10,14 +10,12 @@
 	$password = md5($password);
 
 	$result = mysqli_fetch_array($myDB->query("SELECT COUNT(*) FROM users WHERE name = '$username' AND password = '$password'"));
-	echo $username . $password;
-	
-	echo $result[0];
-	if($result[0] !== 1){
+
+	if($result[0] !== '1'){
 
 		session_unset();
 		session_destroy();
-		header('Location: MeTubeSignIn.html?errorMessage="Incorrect Username or Password."', true, 302);
+		echo '<meta http-equiv="refresh" content="0;url=MeTubeSignIn.php?err=1">';
 		exit();
 	}
 	
@@ -29,6 +27,9 @@
 
 	$_SESSION['username'] = $username;
 	$_SESSION['userID'] = $id;
-	echo '	<a href="MeTube.html">Go To Account</a>	';
+	
+
+	echo '<meta http-equiv="refresh" content="0;url=MeTube.php">';
 	exit();
 ?>
+
