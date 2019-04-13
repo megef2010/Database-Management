@@ -19,7 +19,7 @@
 
 			$id = $Post['searchbar'];
 
-			$sqlq = "SELECT name, description FROM media WHERE name LIKE '%$id%' OR tag='$id' OR category='$id' OR user LIKE '%$id%';
+			$sqlq = "SELECT name, description FROM media WHERE name LIKE '%$id%' OR tag='$id' OR category='$id' OR user LIKE '%$id%'";
 
 			$result = mysql_query($sqlq);
 
