@@ -26,7 +26,7 @@
 
 
 
-<div class="header"><span class="logo"><h1><a href="MeTube.php">MeTube</a></h1></span> <span class="searchbar"><form class="search" action="../search.php" method="post"><input type="text" placeholder="" name="searchbar">
+<div class="header"><span class="logo"><h1><a href="MeTube.php">MeTube</a></h1></span> <span class="searchbar"><form class="search" action="MeTubeSearch.php" method="post"><input type="text" placeholder="" name="searchbar">
 		<button type="submit">
 			<i class="fa fa-search">Search</i></button></form></span><span class="account"><?php 
 	if (isset($_SESSION['username']))

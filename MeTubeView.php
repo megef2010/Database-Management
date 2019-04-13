@@ -53,7 +53,32 @@ if(isset($_GET['id'])) {
 	$username = mysql_fetch_row(mysql_query("SELECT name FROM users WHERE id = ".$result_row[1]));
 	?>
 	<br>
-		User: <?php echo $username[0]; ?> <br>
+		User: <?php echo $username[0]; ?> 
+	<?php 
+		if (isset($_SESSION['userID'])) {
+			$fav = mysql_query("SELECT COUNT(*) FROM subscribers WHERE channelid=".$result_row[1]." AND userid=".$_SESSION['userID']);
+			$faved = mysql_fetch_array($fav);
+			
+		if ($faved[0] == 0) { ?>
+		<form class="subscribe" action="subscribe.php" method="post">
+			<input type="hidden" name="mediaid" value=<?php echo '"' . $result_row[0] . '"'; ?>/>
+			<input type="hidden" name="channelid" value=<?php echo '"' . $result_row[1] . '"'; ?>/>
+			<input type="hidden" name="action" value="add"/>
+			<input value="Subscribe" name="submit" type="submit" />
+		</form>
+	<?php } else { ?>
+		<form class="subscribe" action="subscribe.php" method="post">
+			<input type="hidden" name="mediaid" value=<?php echo '"' . $result_row[0] . '"'; ?>/>
+			<input type="hidden" name="channelid" value=<?php echo '"' . $result_row[1] . '"'; ?>/>
+			<input type="hidden" name="action" value="del"/>
+			<input value="Unsubscribe" name="submit" type="submit" />
+		</form>
+	
+	
+	<?php } } ?>
+	
+	
+	<br>
         Description: <?php echo $result_row[6]; ?> <br>
 		Tags: 
 	
@@ -62,6 +87,27 @@ if(isset($_GET['id'])) {
 <?php if($result_row[1] == $_SESSION['userID']) { 
 	$tags = mysql_query("SELECT * FROM mediatags WHERE mediaid=".$result_row[0]); 
 	$tag = mysql_fetch_row($tags); ?>
+	<?php 
+		if (isset($_SESSION['userID'])) {
+			$fav = mysql_query("SELECT COUNT(*) FROM favorites WHERE mediaid=".$result_row[0]." AND userid=".$_SESSION['userID']);
+			$faved = mysql_fetch_array($fav);
+			
+		if ($faved[0] == 0) { ?>
+		<form class="favorite" action="favorite.php" method="post">
+			<input type="hidden" name="mediaid" value=<?php echo '"' . $result_row[0] . '"'; ?>/>
+			<input type="hidden" name="action" value="add"/>
+			<input value="Favorite" name="submit" type="submit" />
+		</form>
+	<?php } else { ?>
+		<form class="favorite" action="favorite.php" method="post">
+			<input type="hidden" name="mediaid" value=<?php echo '"' . $result_row[0] . '"'; ?>/>
+			<input type="hidden" name="action" value="del"/>
+			<input value="Unfavorite" name="submit" type="submit" />
+		</form>
+	
+	
+	<?php } } ?>
+	
 	
 	<h3>Edit Metadata</h3>
 			<form class="metadata" action="update_metadata.php" method="post">

@@ -77,7 +77,15 @@
 		</div>
 		<div id="Con">
 			Subscriptions
-			<div id="ConScroll"></div>
+			<div id="ConScroll">
+			<?php
+		$query = "SELECT users.id, users.name FROM users INNER JOIN subscribers ON subscribers.channelid=users.id WHERE subscribers.userid='$id'";
+		$results = mysql_query($query);
+		while($row = mysql_fetch_row($results)) {
+	?>
+			<a href="MeTubeAccount.php?id=<?php echo $row[0];?>" target="_blank"><?php echo $row[1];?></a>
+	<?php } ?>
+			</div>
 		</div>
 	</h3>
 	</div>
