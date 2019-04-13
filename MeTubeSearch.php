@@ -17,9 +17,9 @@
 
 			mysql_select_db('metube');
 
-			$id = $Post['searchbar'];
+			$id = $_POST['searchbar'];
 
-			$sqlq = "SELECT name, description FROM media WHERE name LIKE '%$id%' OR tag='$id' OR category='$id' OR user LIKE '%$id%'";
+			$sqlq = "SELECT name, description FROM media JOIN mediatags WHERE media.name LIKE '%$id%' OR media.category = '$id' OR mediatags.tag = '$id' OR media.user LIKE '%$id%'";
 
 			$result = mysql_query($sqlq);
 
