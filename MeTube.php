@@ -17,11 +17,11 @@
 			mysql_select_db('metube');
 
 			$id = "Politics";
-			$sqlq = "SELECT thumbnail FROM media WHERE category='$id'";
+			$sqlq = "SELECT name, description FROM media WHERE category='$id'";
 			$result = mysql_query($sqlq);
 			echo "<table>";
 			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
-				echo "<td>" . $col['thumbnail'] . "</td>";  //$col['index'] the index here is a field name
+				echo "<td><tr>" . $col['name'] . "</tr><tr>" . $col['description'] . "</tr></td>";  //$col['index'] the index here is a field name
 			}
 
 			echo "</table>";
@@ -35,11 +35,11 @@
 			mysql_select_db('metube');
 
 			$id = "Entertainment";
-			$sqlq = "SELECT thumbnail FROM media WHERE category='$id'";
+			$sqlq = "SELECT name, description FROM media WHERE category='$id'";
 			$result = mysql_query($sqlq);
 			echo "<table>";
 			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
-				echo "<td>" . $col['thumbnail'] . "</td>";  //$col['index'] the index here is a field name
+				echo "<td><tr>" . $col['name'] . "</tr><tr>" . $col['description'] . "</tr></td>";  //$col['index'] the index here is a field name
 			}
 
 			echo "</table>";
@@ -54,11 +54,11 @@
 			mysql_select_db('metube');
 
 			$id = "Gaming";
-			$sqlq = "SELECT thumbnail FROM media WHERE category='$id'";
+			$sqlq = "SELECT name, description FROM media WHERE category='$id'";
 			$result = mysql_query($sqlq);
 			echo "<table>";
 			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
-				echo "<td>" . $col['thumbnail'] . "</td>";  //$col['index'] the index here is a field name
+				echo "<td><tr>" . $col['name'] . "</tr><tr>" . $col['description'] . "</tr></td>";  //$col['index'] the index here is a field name
 			}
 
 			echo "</table>";
@@ -72,11 +72,11 @@
 			mysql_select_db('metube');
 
 			$id = "Sports";
-			$sqlq = "SELECT thumbnail FROM media WHERE category='$id'";
+			$sqlq = "SELECT name, description FROM media WHERE category='$id'";
 			$result = mysql_query($sqlq);
 			echo "<table>";
 			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
-				echo "<td>" . $col['thumbnail'] . "</td>";  //$col['index'] the index here is a field name
+				echo "<td><tr>" . $col['name'] . "</tr><tr>" . $col['description'] . "</tr></td>";  //$col['index'] the index here is a field name
 			}
 
 			echo "</table>";
@@ -90,11 +90,11 @@
 			mysql_select_db('metube');
 
 			$id = "Music";
-			$sqlq = "SELECT thumbnail FROM media WHERE category='$id'";
+			$sqlq = "SELECT name, description FROM media WHERE category='$id'";
 			$result = mysql_query($sqlq);
 			echo "<table>";
 			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
-				echo "<td>" . $col['thumbnail'] . "</td>";  //$col['index'] the index here is a field name
+				echo "<td><tr>" . $col['name'] . "</tr><tr>" . $col['description'] . "</tr></td>";  //$col['index'] the index here is a field name
 			}
 
 			echo "</table>";
@@ -108,11 +108,11 @@
 			mysql_select_db('metube');
 
 			$id = "Movies";
-			$sqlq = "SELECT thumbnail FROM media WHERE category='$id'";
+			$sqlq = "SELECT name, description FROM media WHERE category='$id'";
 			$result = mysql_query($sqlq);
 			echo "<table>";
 			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
-				echo "<td>" . $col['thumbnail'] . "</td>";  //$col['index'] the index here is a field name
+				echo "<td><tr>" . $col['name'] . "</tr><tr>" . $col['description'] . "</tr></td>";  //$col['index'] the index here is a field name
 			}
 
 			echo "</table>";
@@ -125,11 +125,11 @@
 			mysql_select_db('metube');
 
 			$id = "TV Shows";
-			$sqlq = "SELECT thumbnail FROM media WHERE category='$id'";
+			$sqlq = "SELECT name, description FROM media WHERE category='$id'";
 			$result = mysql_query($sqlq);
 			echo "<table>";
 			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
-				echo "<td>" . $col['thumbnail'] . "</td>";  //$col['index'] the index here is a field name
+				echo "<td><tr>" . $col['name'] . "</tr><tr>" . $col['description'] . "</tr></td>";  //$col['index'] the index here is a field name
 			}
 
 			echo "</table>";
@@ -143,11 +143,11 @@
 			mysql_select_db('metube');
 
 			$id = "News";
-			$sqlq = "SELECT thumbnail FROM media WHERE category='$id'";
+			$sqlq = "SELECT name, description FROM media WHERE category='$id'";
 			$result = mysql_query($sqlq);
 			echo "<table>";
 			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
-				echo "<td>" . $col['thumbnail'] . "</td>";  //$col['index'] the index here is a field name
+				echo "<td><tr>" . $col['name'] . "</tr><tr>" . $col['description'] . "</tr></td>";  //$col['index'] the index here is a field name
 			}
 
 			echo "</table>";
@@ -161,11 +161,11 @@
 			mysql_select_db('metube');
 
 			$id = "Spotlight";
-			$sqlq = "SELECT thumbnail FROM media WHERE category='$id'";
+			$sqlq = "SELECT name, description FROM media WHERE category='$id'";
 			$result = mysql_query($sqlq);
 			echo "<table>";
 			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
-				echo "<td>" . $col['thumbnail'] . "</td>";  //$col['index'] the index here is a field name
+				echo "<td><tr>" . $col['name'] . "</tr><tr>" . $col['description'] . "</tr></td>";  //$col['index'] the index here is a field name
 			}
 
 			echo "</table>";
