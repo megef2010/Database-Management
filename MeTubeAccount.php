@@ -86,7 +86,7 @@
 					$sender = mysql_query($secondq);
 					echo'<a href="MeTubeReply.php?id=$id&message=$row[0]" target="_blank">';
 					echo '<tr><h4>From: ' . $sender . '</h4></tr><tr>' . $row[1] . '</tr>';
-					echo '</a>
+					echo '</a>';
 				}
 			?></div>
 		</div>
