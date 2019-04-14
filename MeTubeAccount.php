@@ -73,7 +73,22 @@
 		</div>
 		<div id="Mes">
 			Messages
-			<div id="MesScroll"></div>
+			<form class="NewMessage" action="MeTubeMessage.php">
+				<button type="button" value="Compose">Compose</button>
+			</form>
+			<div id="MesScroll">
+			<?php
+				$query = "SELECT messages.id, messages.text, messages.sendid FROM messages INNER JOIN users ON messages.recvid=user.id WHERE messages.recvid='$id'";
+				$results = mysql_query($query);
+				echo '<table>';
+				while($row = mysql_fetch_row($results)) {
+					$secondq = "SELECT user.name FROM users WHERE users.id='$row[2]'";
+					$sender = mysql_query($secondq);
+					echo'<a href="MeTubeReply.php?id=$row[0]" target="_blank">
+					echo '<tr><h4>From: ' . $sender . '</h4></tr><tr>' . $row[1] . '</tr>';
+					echo '</a>
+				}
+			?></div>
 		</div>
 		<div id="Con">
 			Subscriptions
