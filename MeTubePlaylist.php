@@ -12,7 +12,7 @@
 	<div id="SeaScroll">
 		if(isset($_GET['id'])) {
 			$id = mysql_real_escape_string($_GET['id']);
-			$result = mysql_query("SELECT media.name, media.description FROM media JOIN playlistcontent WHERE playlistcontent.playlistid='$id' AND media.id = playlistcontent.mediaid" );
+			$result = mysql_query("SELECT media.name, media.description FROM media INNER JOIN playlistcontent ON media.id = playlistcontent.mediaid WHERE playlistcontent.playlistid='$id'" );
 			$row = mysql_fetch_row($result);
 		
 			echo "<table>";
