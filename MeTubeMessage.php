@@ -23,7 +23,7 @@
    <h2>New Message</h2>
    
    <div id="newMessage">
-   <form class="newMessage" action="sendnewmessage.php" method="post">
+   <form class="newMessage" action="sendnewmessage.php?id=<?php echo '$id';?>" method="post">
     <input type="text" name="to" value="To..."><br><br>
     <textarea name="messagebody">Your message here...</textarea><br><br>
     <input type="submit" value="Send">
