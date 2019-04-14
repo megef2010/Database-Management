@@ -73,7 +73,7 @@
 		</div>
 		<div id="Mes">
 			Messages
-			<form class="NewMessage" action="MeTubeMessage.php">
+			<form class="NewMessage" action="MeTubeMessage.php?id=<?php echo '$id';?>">
 				<button type="button" value="Compose">Compose</button>
 			</form>
 			<div id="MesScroll">
@@ -84,7 +84,7 @@
 				while($row = mysql_fetch_row($results)) {
 					$secondq = "SELECT user.name FROM users WHERE users.id='$row[2]'";
 					$sender = mysql_query($secondq);
-					echo'<a href="MeTubeReply.php?id=$row[0]" target="_blank">
+					echo'<a href="MeTubeReply.php?id=$id&message=$row[0]" target="_blank">';
 					echo '<tr><h4>From: ' . $sender . '</h4></tr><tr>' . $row[1] . '</tr>';
 					echo '</a>
 				}
