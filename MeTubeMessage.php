@@ -11,9 +11,6 @@
 	include_once "function.php";
   
 	if(isset($_GET['id'])) {
-		$id = mysql_real_escape_string($_GET['id']);
-		$result = mysql_query("SELECT name, description FROM users WHERE id='$id'" );
-		$row = mysql_fetch_row($result);
 	} 	
 	else { 
 		echo '<meta http-equiv="refresh" content="0;url=MeTube.php">';
