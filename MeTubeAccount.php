@@ -74,7 +74,7 @@
 		<div id="Mes">
 			Messages
 			<form class="NewMessage" action="MeTubeMessage.php?id=<?php echo '$id';?>">
-				<button type="button" value="Compose">Compose</button>
+				<button type="submit" value="Compose">Compose</button>
 			</form>
 			<div id="MesScroll">
 			<?php
