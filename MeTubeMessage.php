@@ -10,7 +10,7 @@
 	<?php include 'MeTube_GlobalHeader.php'; 
 	include_once "function.php";
   
-	if($_SESSION['id'] == isset($_GET['id'])) {
+	if($_SESSION['userID'] == isset($_GET['id'])) {
 	} 	
 	else { 
 		echo '<meta http-equiv="refresh" content="0;url=MeTube.php">';
