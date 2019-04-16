@@ -14,7 +14,7 @@
 	$receiverid = mysqli_query($myDB, "SELECT id FROM user WHERE name=$receiver");
 
 	$myDB->query("INSERT INTO messages (sendid, recvid, text) VALUES ('$sender', '$receiverid', '$message')");
-  	echo '<a href="MeTubeAccount.html">';
+  	header('Location: MeTubeAccount.php?id=$sender');
 	mysqli_close($myDB);
 	exit();
 ?>
