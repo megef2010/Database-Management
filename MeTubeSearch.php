@@ -19,7 +19,7 @@
 
 			$id = $_POST['searchbar'];
 
-			$sqlq = "SELECT media.id, media.name, media.description FROM media LEFT OUTER JOIN mediatags WHERE media.name LIKE '%$id%' OR media.category = '$id' OR mediatags.tag = '$id' OR media.user LIKE '%$id%'";
+			$sqlq = "SELECT media.id, media.name, media.description FROM media LEFT JOIN mediatags WHERE media.name LIKE '%$id%' OR media.category = '$id' OR mediatags.tag = '$id' OR media.user LIKE '%$id%'";
 
 			if ( $result = mysql_query($sqlq) ) {
 
