@@ -21,7 +21,7 @@
 
 			$sqlq = "SELECT media.id, media.name, media.description FROM media JOIN mediatags WHERE media.name LIKE '%$id%' OR media.category = '$id' OR mediatags.tag = '$id' OR media.user LIKE '%$id%'";
 
-			$result = mysql_query($sqlq);
+			if ( $result = mysql_query($sqlq) ) {
 
 			echo "<table>";
 
@@ -31,7 +31,7 @@
 
 			}
 
-			echo "</table>";
+			echo "</table>"; }
 
 			mysql_close($myDB);
 
