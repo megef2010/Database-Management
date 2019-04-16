@@ -19,6 +19,17 @@ a:hover {
 a:visited {
 	color: purple;
 }
+#CategoryScroll{
+	width: 50%;
+	height: auto;
+	padding: 10px;
+	overflow: auto;
+	white-space: nowrap;
+	background-color: lightgray;
+}
+#CategoryScroll a:hover {
+	background-color: gray;
+}
 #PolScroll{
 	width: 100%;
 	height: 100px;

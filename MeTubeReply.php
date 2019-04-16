@@ -9,9 +9,7 @@
 
 	<?php include 'MeTube_GlobalHeader.php'; 
 	include_once "function.php";
-	if(isset($_GET['id'])) {
-	} 	
-	else { 
+	if(!isset($_GET['id'])) {
 		echo '<meta http-equiv="refresh" content="0;url=MeTube.php">';
 	 } ?>
    <br><br>
@@ -28,9 +26,10 @@
    
    <h2>Reply</h2><br><br>
    <div id="newMessage">
-   <form class="newMessage" action="sendnewmessage.php?id=<?php echo '$id';?>" method="post">
-    <input type="text" name="to" value="<?php echo '$sender';?>"><br><br>
+   <form class="newMessage" action="operation.php" method="post">
+    <input type="text" name="to" value="<?php echo $sender;?>"><br><br>
     <textarea name="messagebody">Your message here...</textarea><br><br>
+	   <input type="hidden" name="action" value="message"/>
     <input type="submit" value="Send">
    </form>
    </div>

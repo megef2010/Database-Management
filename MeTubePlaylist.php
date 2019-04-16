@@ -1,16 +1,16 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>MeTube/Playlist</title>
-<link rel="stylesheet" type="text/css" href="MeTube.css"> 
+	<meta charset="utf-8">
+	<title>MeTube/Playlist</title>
+	<link rel="stylesheet" type="text/css" href="MeTube.css">
 </head>
 
 <body>
 	<?php include 'MeTube_GlobalHeader.php'; ?>
 	<!-- Template for Playlist Page. Vertical scrollbar with videos displayed found in PHP search. -->
 	<div id="SeaScroll">
-		if(isset($_GET['id'])) {
+		<?php if(isset($_GET['id'])) {
 			$id = mysql_real_escape_string($_GET['id']);
 			$result = mysql_query("SELECT media.name, media.description FROM media INNER JOIN playlistcontent ON media.id = playlistcontent.mediaid WHERE playlistcontent.playlistid='$id'" );
 			$row = mysql_fetch_row($result);

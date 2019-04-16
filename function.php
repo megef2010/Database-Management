@@ -1,62 +1,72 @@
 <?php
 include "mysqlClass.inc.php";
 
-function user_pass_check($username, $password)
-{
-	
+function user_pass_check( $username, $password ) {
+
 	$query = "SELECT * FROM users WHERE name='$username'";
 	$result = mysql_query( $query );
-		
-	if (!$result)
-	{
-	   die ("user_pass_check() failed. Could not query the database: <br />". mysql_error());
-	}
-	else{
-		$row = mysql_fetch_row($result);
-		if(strcmp($row[1],$password))
+
+	if ( !$result ) {
+		die( "user_pass_check() failed. Could not query the database: <br />" . mysql_error() );
+	} else {
+		$row = mysql_fetch_row( $result );
+		if ( strcmp( $row[ 1 ], $password ) )
 			return 2; //wrong password
-		else 
+		else
 			return 0; //Checked.
-	}	
+	}
 }
 
-function updateMediaTime($mediaid)
-{
+function updateMediaTime( $mediaid ) {
 	$query = "	update  media set lastaccesstime=NOW()
    						WHERE '$mediaid' = mediaid
 					";
-					 // Run the query created above on the database through the connection
-    $result = mysql_query( $query );
-	if (!$result)
-	{
-	   die ("updateMediaTime() failed. Could not query the database: <br />". mysql_error());
+	// Run the query created above on the database through the connection
+	$result = mysql_query( $query );
+	if ( !$result ) {
+		die( "updateMediaTime() failed. Could not query the database: <br />" . mysql_error() );
 	}
 }
 
-function upload_error($result)
-{
+function upload_error( $result ) {
 	//view erorr description in http://us2.php.net/manual/en/features.file-upload.errors.php
-	switch ($result){
-	case 1:
-		return "UPLOAD_ERR_INI_SIZE";
-	case 2:
-		return "UPLOAD_ERR_FORM_SIZE";
-	case 3:
-		return "UPLOAD_ERR_PARTIAL";
-	case 4:
-		return "UPLOAD_ERR_NO_FILE";
-	case 5:
-		return "File has already been uploaded";
-	case 6:
-		return  "Failed to move file from temporary directory";
-	case 7:
-		return  "Upload file failed";
+	switch ( $result ) {
+		case 1:
+			return "UPLOAD_ERR_INI_SIZE";
+		case 2:
+			return "UPLOAD_ERR_FORM_SIZE";
+		case 3:
+			return "UPLOAD_ERR_PARTIAL";
+		case 4:
+			return "UPLOAD_ERR_NO_FILE";
+		case 5:
+			return "File has already been uploaded";
+		case 6:
+			return "Failed to move file from temporary directory";
+		case 7:
+			return "Upload file failed";
 	}
 }
 
-function other()
-{
+function printcategorybox( $category ) {
+	echo "<h3>".$category."</h3>";
+	echo '<div id="CategoryScroll">';
+	$sqlq = "SELECT id, title, description FROM media WHERE category='$category'";
+	if ( $result = mysql_query( $sqlq ) ) {
+		echo "<table>";
+		while ( $col = mysql_fetch_row( $result ) ) { //Creates a loop to loop through results
+			echo "<tr><td><a href=\"MeTubeView.php?id=" . $col[0] . "\">" . $col[1] . "</a></td></tr><tr><td>" . $col[2] . "</td></tr>"; //$col['index'] the index here is a field name
+		}
+
+		echo "</table>";
+	} else {
+		echo "There doesn't seem to be anything here...";
+	}
+	echo "</div>";
+}
+
+function other() {
 	//You can write your own functions here.
 }
-	
+
 ?>
