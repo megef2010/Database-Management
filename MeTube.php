@@ -20,7 +20,7 @@
 			$sqlq = "SELECT name, description FROM media WHERE category='$id'";
 			$result = mysql_query($sqlq);
 			echo "<table>";
-			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
+			while($col = mysql_fetch_row($result)){   //Creates a loop to loop through results
 				echo "<td><tr>" . $col['name'] . "</tr><tr>" . $col['description'] . "</tr></td>";  //$col['index'] the index here is a field name
 			}
 
@@ -38,7 +38,7 @@
 			$sqlq = "SELECT name, description FROM media WHERE category='$id'";
 			$result = mysql_query($sqlq);
 			echo "<table>";
-			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
+			while($col = mysql_fetch_row($result)){   //Creates a loop to loop through results
 				echo "<td><tr>" . $col['name'] . "</tr><tr>" . $col['description'] . "</tr></td>";  //$col['index'] the index here is a field name
 			}
 
@@ -57,7 +57,7 @@
 			$sqlq = "SELECT name, description FROM media WHERE category='$id'";
 			$result = mysql_query($sqlq);
 			echo "<table>";
-			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
+			while($col = mysql_fetch_row($result)){   //Creates a loop to loop through results
 				echo "<td><tr>" . $col['name'] . "</tr><tr>" . $col['description'] . "</tr></td>";  //$col['index'] the index here is a field name
 			}
 
@@ -75,7 +75,7 @@
 			$sqlq = "SELECT name, description FROM media WHERE category='$id'";
 			$result = mysql_query($sqlq);
 			echo "<table>";
-			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
+			while($col = mysql_fetch_row($result)){   //Creates a loop to loop through results
 				echo "<td><tr>" . $col['name'] . "</tr><tr>" . $col['description'] . "</tr></td>";  //$col['index'] the index here is a field name
 			}
 
@@ -93,7 +93,7 @@
 			$sqlq = "SELECT name, description FROM media WHERE category='$id'";
 			$result = mysql_query($sqlq);
 			echo "<table>";
-			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
+			while($col = mysql_fetch_row($result)){   //Creates a loop to loop through results
 				echo "<td><tr>" . $col['name'] . "</tr><tr>" . $col['description'] . "</tr></td>";  //$col['index'] the index here is a field name
 			}
 
@@ -111,7 +111,7 @@
 			$sqlq = "SELECT name, description FROM media WHERE category='$id'";
 			$result = mysql_query($sqlq);
 			echo "<table>";
-			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
+			while($col = mysql_fetch_row($result)){   //Creates a loop to loop through results
 				echo "<td><tr>" . $col['name'] . "</tr><tr>" . $col['description'] . "</tr></td>";  //$col['index'] the index here is a field name
 			}
 
@@ -128,7 +128,7 @@
 			$sqlq = "SELECT name, description FROM media WHERE category='$id'";
 			$result = mysql_query($sqlq);
 			echo "<table>";
-			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
+			while($col = mysql_fetch_row($result)){   //Creates a loop to loop through results
 				echo "<td><tr>" . $col['name'] . "</tr><tr>" . $col['description'] . "</tr></td>";  //$col['index'] the index here is a field name
 			}
 
@@ -146,7 +146,7 @@
 			$sqlq = "SELECT name, description FROM media WHERE category='$id'";
 			$result = mysql_query($sqlq);
 			echo "<table>";
-			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
+			while($col = mysql_fetch_row($result)){   //Creates a loop to loop through results
 				echo "<td><tr>" . $col['name'] . "</tr><tr>" . $col['description'] . "</tr></td>";  //$col['index'] the index here is a field name
 			}
 
@@ -164,7 +164,7 @@
 			$sqlq = "SELECT name, description FROM media WHERE category='$id'";
 			$result = mysql_query($sqlq);
 			echo "<table>";
-			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
+			while($col = mysql_fetch_row($result)){   //Creates a loop to loop through results
 				echo "<td><tr>" . $col['name'] . "</tr><tr>" . $col['description'] . "</tr></td>";  //$col['index'] the index here is a field name
 			}
 
