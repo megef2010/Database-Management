@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="signin.php" server="metube-1223456.duckdns.org" local="131995621353478614" remote="131995765200000000" Dst="2" />
 <file name="MeTube.css" server="metube-1223456.duckdns.org" local="131999093634649062" remote="131999237400000000" Dst="2" />
 <file name="accountimg.jpg" server="metube-1223456.duckdns.org" local="131993834372367300" remote="131994032400000000" Dst="2" />
 <file name="MeTube_GlobalHeader.php" server="metube-1223456.duckdns.org" local="131999090145200060" remote="131999233800000000" Dst="2" />
@@ -12,23 +11,11 @@
 <file name="MeTubeSearch.php" server="metube-1223456.duckdns.org" local="131999086149754898" remote="131999229600000000" Dst="2" />
 <file name="MeTubeView.php" server="metube-1223456.duckdns.org" local="131999055688886176" remote="131999199600000000" Dst="2" />
 <file name="MeTubeUpload.php" server="metube-1223456.duckdns.org" local="131999053114261504" remote="131999196600000000" Dst="2" />
-<file name="media_upload_process.php" server="metube-1223456.duckdns.org" local="131994758301398064" remote="131994901800000000" Dst="2" />
-<file name="create.php" server="metube-1223456.duckdns.org" local="131993834372172039" remote="131994744000000000" Dst="2" />
 <file name="config.php" server="metube-1223456.duckdns.org" local="131994602254435006" remote="131994752400000000" Dst="2" />
 <file name="mysqlClass.inc.php" server="metube-1223456.duckdns.org" local="129091676160000000" remote="131994752400000000" Dst="2" />
 <file name="function.php" server="metube-1223456.duckdns.org" local="131999092445635927" remote="131999236200000000" Dst="2" />
-<file name="browse.php" server="metube-1223456.duckdns.org" local="131994766197547680" remote="131994909600000000" Dst="2" />
-<file name="media.php" server="metube-1223456.duckdns.org" local="131994767736954918" remote="131994911400000000" Dst="2" />
-<file name="comment.php" server="metube-1223456.duckdns.org" local="131995613460882906" remote="131995757400000000" Dst="2" />
-<file name="signout.php" server="metube-1223456.duckdns.org" local="131996591312653564" remote="131996734800000000" Dst="2" />
-<file name="update_profile.php" server="metube-1223456.duckdns.org" local="131995684684052310" remote="131995828200000000" Dst="2" />
-<file name="update_metadata.php" server="metube-1223456.duckdns.org" local="131996538258106122" remote="131996682000000000" Dst="2" />
-<file name="delcomment.php" server="metube-1223456.duckdns.org" local="131996552662330541" remote="131996696400000000" Dst="2" />
 <file name="MeTubePlaylist.php" server="metube-1223456.duckdns.org" local="131999047963335610" remote="131999191800000000" Dst="2" />
-<file name="favorite.php" server="metube-1223456.duckdns.org" local="131996568404856381" remote="131996712000000000" Dst="2" />
-<file name="subscribe.php" server="metube-1223456.duckdns.org" local="131996588901480492" remote="131996732400000000" Dst="2" />
 <file name="MeTubeMessage.php" server="metube-1223456.duckdns.org" local="131999047416693768" remote="131999191200000000" Dst="2" />
 <file name="MeTubeReply.php" server="metube-1223456.duckdns.org" local="131999049119796605" remote="131999193000000000" Dst="2" />
-<file name="sendnewmessage.php" server="metube-1223456.duckdns.org" local="131999032763027998" remote="131999176200000000" Dst="2" />
 <file name="operation.php" server="metube-1223456.duckdns.org" local="131999071664812646" remote="131999215200000000" Dst="2" />
 </dwsync>
