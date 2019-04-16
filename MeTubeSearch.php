@@ -19,7 +19,7 @@
 
 			$id = $_POST['searchbar'];
 
-			$sqlq = "SELECT media.name, media.description FROM media JOIN mediatags WHERE media.name LIKE '%$id%' OR media.category = '$id' OR mediatags.tag = '$id' OR media.user LIKE '%$id%'";
+			$sqlq = "SELECT media.id, media.name, media.description FROM media JOIN mediatags WHERE media.name LIKE '%$id%' OR media.category = '$id' OR mediatags.tag = '$id' OR media.user LIKE '%$id%'";
 
 			$result = mysql_query($sqlq);
 
@@ -27,7 +27,7 @@
 
 			while($col = mysql_fetch_row($result)){   //Creates a loop to loop through results
 
-				echo "<tr><td>" . $col['name'] . "</td><td>" . $col['description'] . "</td></tr>";  //$col['index'] the index here is a field name
+				echo "<a href="MeTubeView.html?id=$col['id']"><tr><td>" . $col['name'] . "</td><td>" . $col['description'] . "</td></tr></a>";  //$col['index'] the index here is a field name
 
 			}
 
