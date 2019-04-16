@@ -13,7 +13,7 @@
 	$receiverid = mysqli_query($myDB, "SELECT id FROM user WHERE name=$receiver");
 
 	$myDB->query("INSERT INTO messages (sendid, recvid, text) VALUES ('$sender', '$receiverid', '$message')");
-  	header('Location: MeTubeMessage.html?errorMessage="Email Sent"', true, 200);
+  	echo '<a href="MeTubeAccount.html">';
 	mysqli_close($myDB);
 	exit();
 ?>
