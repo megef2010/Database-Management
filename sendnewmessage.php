@@ -1,6 +1,7 @@
 <?php
 	session_name('MetubeSession');
 	session_start();
+	include_once "function.php";;
 	$myDB = mysqli_connect('localhost', 'metube', 'SuperSecurePassword', 'metube');
 	if (mysqli_connect_errno()) {
   		echo "Failed to connect to MySQL: " . mysqli_connect_error();
