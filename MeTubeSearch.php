@@ -25,7 +25,7 @@
 
 			echo "<table>";
 
-			while($col = mysql_fetch_array($result)){   //Creates a loop to loop through results
+			while($col = mysql_fetch_row($result)){   //Creates a loop to loop through results
 
 				echo "<tr><td>" . $col['name'] . "</td><td>" . $col['description'] . "</td></tr>";  //$col['index'] the index here is a field name
 
