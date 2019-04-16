@@ -17,11 +17,11 @@
 			mysql_select_db('metube');
 
 			$id = "Politics";
-			$sqlq = "SELECT name, description FROM media WHERE category='$id'";
+			$sqlq = "SELECT id, name, description FROM media WHERE category='$id'";
 			$result = mysql_query($sqlq);
 			echo "<table>";
 			while($col = mysql_fetch_row($result)){   //Creates a loop to loop through results
-				echo "<td><tr>" . $col['name'] . "</tr><tr>" . $col['description'] . "</tr></td>";  //$col['index'] the index here is a field name
+				echo "<a href="MeTubeView.php?id=$col['id']"><td><tr>" . $col['name'] . "</tr><tr>" . $col['description'] . "</tr></td></a>";  //$col['index'] the index here is a field name
 			}
 
 			echo "</table>";
