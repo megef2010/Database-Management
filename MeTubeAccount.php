@@ -21,7 +21,7 @@
 		if($id == $_SESSION['userID'])
 		{ ?>
 			<form class="profile" action="update_profile.php" method="post">
-			<textarea name="description"><?php echo $row[1]; ?></textarea>
+			<textarea name="description" cols="100" rows="75"><?php echo $row[1]; ?></textarea>
 			<input type="hidden" name="userid" value=<?php echo '"' . $_SESSION['userID'] . '"'; ?>/>
 			<input value="Update Description" name="submit" type="submit" />
 			</form>
