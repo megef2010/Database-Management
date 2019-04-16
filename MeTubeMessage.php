@@ -22,7 +22,7 @@
    <div id="newMessage">
    <form class="newMessage" action="sendnewmessage.php?id=<?php echo '$id';?>" method="post">
     <input type="text" name="to" value="To..."><br><br>
-    <textarea name="messagebody">Your message here...</textarea><br><br>
+    <textarea name="messagebody" cols="100" rows="75">Your message here...</textarea><br><br>
     <input type="submit" value="Send">
    </form>
    </div>
