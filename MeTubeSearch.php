@@ -27,7 +27,7 @@
 
 			while($col = mysql_fetch_row($result)){   //Creates a loop to loop through results
 
-				echo "<a href="MeTubeView.html?id=$col['id']"><tr><td>" . $col['name'] . "</td><td>" . $col['description'] . "</td></tr></a>";  //$col['index'] the index here is a field name
+				echo "<a href="MeTubeView.php?id=$col['id']"><tr><td>" . $col['name'] . "</td><td>" . $col['description'] . "</td></tr></a>";  //$col['index'] the index here is a field name
 
 			}
 
