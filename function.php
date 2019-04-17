@@ -49,7 +49,11 @@ function upload_error( $result ) {
 }
 
 function printcategorybox( $category ) {
-	echo "<h3>".$category."</h3>";
+	if($category == NULL) {
+		echo "<h3>Uncategorized</h3>";
+	} else {
+		echo "<h3>".$category."</h3>"; 
+	}
 	echo '<div id="CategoryScroll">';
 	$sqlq = "SELECT id, title, description FROM media WHERE category='$category'";
 	if ( $result = mysql_query( $sqlq ) ) {
@@ -59,13 +63,29 @@ function printcategorybox( $category ) {
 		}
 
 		echo "</table>";
-	} else {
-		echo "There doesn't seem to be anything here...";
 	}
 	echo "</div>";
 }
 
-function other() {
+function isowner( $type, $id ) {
+	mysql_real_escape_string($id);
+	switch($type) {
+		case 'account':
+			return $id == $_SESSION['userID'];
+		case 'message':
+			$result = mysql_result(mysql_query("SELECT recvid FROM messages WHERE id=" . $id),0);
+			return $result == $_SESSION['userID'];
+		case 'playlist':
+			$result = mysql_result(mysql_query("SELECT userid FROM playlists WHERE id=" . $id),0);
+			return $result == $_SESSION['userID'];
+		case 'media':
+			$result = mysql_result(mysql_query("SELECT userid FROM media WHERE id=" . $id),0);
+			return $result == $_SESSION['userID'];
+		default:
+			return false;
+				
+	}
+		
 	//You can write your own functions here.
 }
 

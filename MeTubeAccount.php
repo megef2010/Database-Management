@@ -20,10 +20,10 @@
 	</h1>
 	<?php echo $row[1]; ?>
 	<?php 
-		if($id == $_SESSION['userID'])
+		if(isowner('account', $_GET['id']))
 		{ ?>
 	<form class="profile" action="operation.php" method="post">
-		<textarea name="description" cols="100" rows="75"><?php echo $row[1]; ?></textarea>
+		<textarea name="description" cols="40" rows="5"><?php echo $row[1]; ?></textarea>
 		<input type="hidden" name="action" value="profile"/>
 		<input value="Update Description" name="submit" type="submit"/>
 	</form>
@@ -48,12 +48,12 @@
 						?>
 					<a href="MeTubeView.php?id=<?php echo $row[0];?>" target="_blank">
 						<?php echo $row[1];?>
-					</a>
+					</a> <br>
 					<?php } ?>
 				</div>
 			</div>
 			<div id="Pla">
-				Playlists
+				Playlists <?php if(isowner('account',$_GET['id'])) echo "(<a href=\"MeTubePlaylist.php\">Manage</a>)"; ?>
 				<div id="PlaScroll">
 					<?php
 					$query = "SELECT playlists.id, playlists.name FROM playlists WHERE playlists.userid='$id'";
@@ -75,33 +75,34 @@
 					while ( $row = mysql_fetch_row( $results ) ) {
 						?>
 					<a href="MeTubeView.php?id=<?php echo $row[0];?>" target="_blank">
-						<?php echo $row[1];?>
+						<?php echo $row[1];?><br>
 					</a>
 					<?php } ?>
 
 				</div>
 			</div>
+			<?php if(isowner('account', $_GET['id'])) { ?>
 			<div id="Mes">
-				Messages
-				<form class="NewMessage" action="MeTubeMessage.php?id=<?php echo '$id';?>">
-					<button type="submit" value="Compose">Compose</button>
-				</form>
+				Messages (<a href="MeTubeMessage.php">Compose</a>)
+
 				<div id="MesScroll">
 					<?php
-					$query = "SELECT messages.id, messages.text, messages.sendid FROM messages INNER JOIN users ON messages.recvid=user.id WHERE messages.recvid='$id'";
+					$query = "SELECT messages.id, messages.text, messages.sendid FROM messages INNER JOIN users ON messages.recvid=users.id WHERE messages.recvid='$id'";
 					if ( $results = mysql_query( $query ) ) {
 						echo '<table>';
 						while ( $row = mysql_fetch_row( $results ) ) {
-							$secondq = "SELECT user.name FROM users WHERE users.id='$row[2]'";
-							$sender = mysql_query( $secondq );
-							echo '<a href="MeTubeReply.php?id=$id&message=$row[0]" target="_blank">';
+							$secondq = "SELECT users.name FROM users WHERE users.id=".$row[2];
+							$sender = mysql_result(mysql_query( $secondq ),0);
+							echo '<a href="MeTubeReply.php?id=$id" target="_blank">';
 							echo '<tr><h4>From: ' . $sender . '</h4></tr><tr>' . $row[ 1 ] . '</tr>';
 							echo '</a>';
 						}
+						echo '</table>';
 					}
 					?>
 				</div>
 			</div>
+			<?php } ?>
 			<div id="Con">
 				Subscriptions
 				<div id="ConScroll">

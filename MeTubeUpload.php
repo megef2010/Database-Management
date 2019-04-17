@@ -14,7 +14,7 @@
 			Title <input type="text" name="title" required><br><br>
 			<input type="hidden" name="MAX_FILE_SIZE" value="10485760"/> Upload a file (Max file size is 10 MB)<br/>
 			<input name="file" type="file" size="50" required/>
-			<input type="hidden" name="action" value="upload"/>
+			<input type="hidden" name="action" value="media_upload"/>
 			<input value="Upload" name="submit" type="submit"/>
 		</p>
 	</form>

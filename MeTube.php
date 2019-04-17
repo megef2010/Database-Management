@@ -8,7 +8,10 @@
 
 <body>
 	<?php include 'MeTube_GlobalHeader.php';
-		include_once 'function.php';?>
+		include_once 'function.php';
+	
+	if(isset($_GET['result']))
+		echo "<h3>" . upload_error($_GET['result']) . "</h3>"; ?>
 	<!-- Template for Homepage. Horizontal scrollbar with videos displayed under each category title. -->
 	<h2>Best of MeTube</h2>
 
@@ -22,6 +25,7 @@
 	printcategorybox( "TV Shows" );
 	printcategorybox( "News" );
 	printcategorybox( "Spotlight" );
+	printcategorybox( NULL );
 	?>
 
 </body>

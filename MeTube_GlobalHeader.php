@@ -41,7 +41,7 @@ include_once 'function.php';
 	if (isset($_SESSION['username']))
 	{
 		echo 'Welcome, ' . $_SESSION['username'] . ' | ';
-		echo '<a href="/MeTubeUpload.php">Upload</a> | ';
+		echo '<a href="MeTubeUpload.php">Upload</a> | ';
 		echo '<a href="MeTubeAccount.php?id=' . $_SESSION['userID'] . '">Go To Account</a> | ';
 		?> 
 		<form class="signin" action="operation.php" align="center" method="post" style="display: inline-block">
@@ -50,7 +50,7 @@ include_once 'function.php';
 		</form>
 		<?php
 		} else {
-			echo '<a href="/MeTubeSignIn.php">Sign In</a> | <a href="/MeTubeCreate.php">Create an Account</a>';
+			echo '<a href="MeTubeSignIn.php">Sign In</a> | <a href="MeTubeCreate.php">Create an Account</a>';
 
 		}
 		?>

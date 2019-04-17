@@ -13,12 +13,12 @@ $redirect = 'MeTube.php'; // at least a plurality of redirects go to the homepag
 if ( isset( $_POST[ 'action' ] ) ) {
 	switch ( $_POST[ 'action' ] ) {
 		case 'signin':
-			$username = mysql_real_escape_string( $_POST[ 'email' ] );
+			$username = mysql_real_escape_string( $_POST[ 'username' ] );
 			$password = md5( $_POST[ 'password' ] );
 
 			$result = mysql_fetch_array( mysql_query( "SELECT COUNT(*) FROM users WHERE name = '$username' AND password = '$password'" ) );
 
-			if ( $result[ 0 ] !== '1' ) {
+			if ( $result[ 0 ] != '1' ) {
 				session_unset();
 				session_destroy();
 				$redirect = 'MeTubeSignIn.php?err=1';
@@ -34,33 +34,36 @@ if ( isset( $_POST[ 'action' ] ) ) {
 			session_destroy();
 			break;
 		case 'create':
-			$username = mysql_real_escape_string( $_POST[ 'email' ] );
+			$username = mysql_real_escape_string( $_POST[ 'username' ] );
 			$password = md5( $_POST[ 'password' ] );
 			$description = mysql_real_escape_string( $_POST[ 'description' ] );
 
-			$result = mysqli_fetch_array( mysql_query( "SELECT COUNT(*) FROM users WHERE name = '$username'" ) );
+			$result = mysql_fetch_array( mysql_query( "SELECT COUNT(*) FROM users WHERE name = '$username'" ) );
 
-			if ( $result[ 0 ] !== '0' ) {
+			if ( $result[ 0 ] != '0' ) {
 				session_unset();
 				session_destroy();
-				header( 'Location: MeTubeCreate.html?errorMessage="Email Taken"', true, 302 );
+				header( 'Location: MeTubeCreate.html?errorMessage="Username Taken"', true, 302 );
 				break;
 			}
 
 			mysql_query( "INSERT INTO users (name, password, description) VALUES ('$username', '$password', '$description')" );
 			break;
 		case 'media_upload':
-			// todo: die if no username, die if no title, die if no file
 			if ( isset( $_SESSION[ 'userID' ] ) ) {
 				$username = $_SESSION[ 'username' ];
 
 				//Create Directory if doesn't exist
-				if ( !file_exists( 'uploads/' ) )
-					mkdir( 'uploads/', 0744 );
-				$dirfile = 'uploads/' . $username . '/';
-				if ( !file_exists( $dirfile ) )
-					mkdir( $dirfile, 0744 );
+				if ( !file_exists( 'uploads/' ) ) {
+					mkdir( 'uploads/' );
+					chmod( 'uploads/', 0744 );
+				}
 
+				$dirfile = 'uploads/' . $username . '/';
+				if ( !file_exists( $dirfile ) ) {
+					mkdir( $dirfile, 0744 );
+					chmod( $dirfile, 0744 );
+				}
 
 				if ( $_FILES[ "file" ][ "error" ] > 0 ) {
 					$result = $_FILES[ "file" ][ "error" ];
@@ -84,7 +87,7 @@ if ( isset( $_POST[ 'action' ] ) ) {
 								$queryresult = mysql_query( $insert )
 								or die( "Insert into Media error in media_upload_process.php " . mysql_error() );
 								$result = "0";
-
+								chmod( $upfile, 0644 );
 								$mediaid = mysql_insert_id();
 							}
 						} else {
@@ -93,7 +96,7 @@ if ( isset( $_POST[ 'action' ] ) ) {
 					}
 				}
 			}
-			$redirect = "MeTube.php?result=".$result;
+			$redirect = "MeTube.php?result=" . $result;
 			break;
 		case 'metadata':
 			if ( isset( $_SESSION[ 'userID' ] ) ) {
@@ -116,7 +119,7 @@ if ( isset( $_POST[ 'action' ] ) ) {
 					mysql_query( "INSERT INTO mediatags (mediaid, tag) VALUES ('$mediaid', '$tag')" );
 				}
 			}
-			$redirect = "MeTubeView.php?id=".$mediaid;
+			$redirect = "MeTubeView.php?id=" . $mediaid;
 			break;
 		case 'favadd':
 			if ( isset( $_SESSION[ 'userID' ] ) ) {
@@ -125,7 +128,7 @@ if ( isset( $_POST[ 'action' ] ) ) {
 
 				mysql_query( "INSERT INTO favorites (userid, mediaid) VALUES ('$userid', '$mediaid')" );
 			}
-			$redirect = "MeTubeView.php?id=".$mediaid;
+			$redirect = "MeTubeView.php?id=" . $mediaid;
 			break;
 		case 'favdel':
 			if ( isset( $_SESSION[ 'userID' ] ) ) {
@@ -134,7 +137,7 @@ if ( isset( $_POST[ 'action' ] ) ) {
 
 				mysql_query( "DELETE FROM favorites WHERE userid='$userid' AND mediaid='$mediaid'" );
 			}
-			$redirect = "MeTubeView.php?id=".$mediaid;
+			$redirect = "MeTubeView.php?id=" . $mediaid;
 			break;
 		case 'comment':
 			if ( isset( $_SESSION[ 'userID' ] ) ) {
@@ -144,7 +147,7 @@ if ( isset( $_POST[ 'action' ] ) ) {
 
 				mysql_query( "INSERT INTO comments (mediaid, userid, text) VALUES ('$mediaid', '$userid' ,'$comment')" );
 			}
-			$redirect = "MeTubeView.php?id=".$mediaid;
+			$redirect = "MeTubeView.php?id=" . $mediaid;
 			break;
 		case 'delcomment':
 			if ( isset( $_SESSION[ 'userID' ] ) ) {
@@ -154,7 +157,7 @@ if ( isset( $_POST[ 'action' ] ) ) {
 
 				mysql_query( "DELETE FROM comments WHERE id = '$commentid' AND userid = '$userid'" );
 			}
-			$redirect = "MeTubeView.php?id=".$mediaid;
+			$redirect = "MeTubeView.php?id=" . $mediaid;
 			break;
 		case 'profile':
 			if ( isset( $_SESSION[ 'userID' ] ) ) {
@@ -163,7 +166,7 @@ if ( isset( $_POST[ 'action' ] ) ) {
 
 				mysql_query( "UPDATE users SET description='$desc' WHERE id='$userid'" );
 			}
-			$redirect = "MeTubeAccount.php?id=".$userid;
+			$redirect = "MeTubeAccount.php?id=" . $userid;
 			break;
 		case 'subscribe':
 			if ( isset( $_SESSION[ 'userID' ] ) ) {
@@ -173,7 +176,7 @@ if ( isset( $_POST[ 'action' ] ) ) {
 
 				mysql_query( "INSERT INTO subscribers (userid, channelid) VALUES ('$userid', '$channelid')" );
 			}
-			$redirect = "MeTubeView.php?id=".$mediaid;
+			$redirect = "MeTubeView.php?id=" . $mediaid;
 			break;
 		case 'unsubscribe':
 			if ( isset( $_SESSION[ 'userID' ] ) ) {
@@ -183,19 +186,58 @@ if ( isset( $_POST[ 'action' ] ) ) {
 
 				mysql_query( "DELETE FROM subscribers WHERE userid='$userid' AND channelid='$channelid'" );
 			}
-			$redirect = "MeTubeView.php?id=".$mediaid;
+			$redirect = "MeTubeView.php?id=" . $mediaid;
 			break;
 		case 'message':
-			// todo: error handling if no userid found
 			if ( isset( $_SESSION[ 'userID' ] ) ) {
 				$sender = $_SESSION[ 'userID' ];
 				$receiver = mysql_real_escape_string( $_POST[ 'to' ] );
-				$message = mysql_real_escape_string( $_POST[ '$messagebody' ] );
-				$receiverid = mysql_query( "SELECT id FROM user WHERE name='$receiver'" );
-
-				mysql_query( "INSERT INTO messages (sendid, recvid, text) VALUES ('$sender', '$receiverid', '$message')" );
+				$subject = mysql_real_escape_string( $_POST[ 'subject' ] );
+				$message = mysql_real_escape_string( $_POST[ 'messagebody' ] );
+				$receiverid = mysql_fetch_row(mysql_query( "SELECT id FROM users WHERE name='$receiver'" ));
+				$receiverid = $receiverid[0];
+				
+				mysql_query( "INSERT INTO messages (sendid, recvid, text, subject) VALUES ('$sender', '$receiverid', '$message', '$subject')" );
 			}
-			$redirect = "MeTubeAccount.php?id=".$sender;
+			$redirect = "MeTubeAccount.php?id=" . $sender;
+			break;
+		case 'playlistcreate':
+			if ( isset( $_SESSION[ 'userID' ] ) ) {
+				$userid = $_SESSION[ 'userID' ];
+				$name = mysql_real_escape_string( $_POST[ 'playlist' ] );
+
+				mysql_query( "INSERT INTO playlists (userid, name) VALUES ('$userid', '$name')" );
+			}
+			$redirect = "MeTubePlaylist.php";
+			break;
+		case 'playlistdelete':
+			if ( isset( $_SESSION[ 'userID' ] ) ) {
+				$userid = $_SESSION[ 'userID' ];
+				$id = mysql_real_escape_string( $_POST[ 'playlistid' ] );
+
+				mysql_query( "DELETE FROM playlists WHERE userid='$userid' AND id='$id'" );
+			}
+			$redirect = "MeTubePlaylist.php";
+			break;
+		case 'playlistadd':
+			if ( isset( $_SESSION[ 'userID' ] ) ) {
+				$userid = $_SESSION[ 'userID' ];
+				$playlistid = mysql_real_escape_string( $_POST[ 'playlist' ] );
+				$mediaid = mysql_real_escape_string( $_POST[ 'mediaid' ] );
+				if (mysql_result(mysql_query("SELECT COUNT(*) FROM playlists WHERE id='$playlistid' AND userid='$userid'"),0) != 0)
+					mysql_query( "INSERT INTO playlistcontent (playlistid, mediaid) VALUES ('$playlistid', '$mediaid')" );
+			}
+			$redirect = "MeTubeView.php?id=" . $mediaid;
+			break;
+		case 'playlistrem':
+			if ( isset( $_SESSION[ 'userID' ] ) ) {
+				$userid = $_SESSION[ 'userID' ];
+				$playlistid = mysql_real_escape_string( $_POST[ 'playlist' ] );
+				$mediaid = mysql_real_escape_string( $_POST[ 'mediaid' ] );
+				if (mysql_result(mysql_query("SELECT COUNT(*) FROM playlists WHERE id='$playlistid' AND userid='$userid'"),0) != 0) 
+					mysql_query( "DELETE FROM playlistcontent WHERE playlistid='$playlistid' AND mediaid='$mediaid'" ); 
+			}
+			$redirect = "MeTubePlaylist.php?id=" . $playlistid;
 			break;
 		default:
 			$redirect = 'MeTube.php';
@@ -203,5 +245,7 @@ if ( isset( $_POST[ 'action' ] ) ) {
 } else {
 	$redirect = 'MeTube.php';
 }
-header('Location: '.$redirect, true, 302);
+if(isset($_POST['redir']))
+	$redirect = $_POST['redir'];
+header( 'Location: ' . $redirect, true, 302 );
 ?>

@@ -11,7 +11,7 @@
 	<?php include 'MeTube_GlobalHeader.php'; 
 	include_once "function.php";
   
-	if($_SESSION['userID'] == isset($_GET['id'])) {
+	if(isset($_SESSION['userID'])) {
 	} 	
 	else { 
 		echo '<meta http-equiv="refresh" content="0;url=MeTube.php">';
@@ -22,8 +22,9 @@
 
 	<div id="newMessage">
 		<form class="newMessage" action="operation.php" method="post">
-			<input type="text" name="to" value="To..."><br><br>
-			<textarea name="messagebody" cols="100" rows="75">Your message here...</textarea><br><br>
+			<input type="text" name="to" placeholder="To..."><br><br>
+			<input type="text" name="subject" placeholder="Subject"><br><br>
+			<textarea name="messagebody" cols="40" rows="5" placeholder="Your message here"></textarea><br><br>
 			<input type="hidden" name="action" value="message"/>
 			<input type="submit" value="Send">
 

@@ -14,7 +14,7 @@
 }?>
 	<form class="signin" action="operation.php" align="center" method="post">
 		<!-- Links to PHP file for signing in. -->
-		<p>Username <input type="text" name="email"><br><br> Password <input type="password" name="password"><br><br>
+		<p>Username <input type="text" name="username" required><br><br> Password <input type="password" name="password" required><br><br>
 			<input type="hidden" name="action" value="signin"/>
 			<input type="submit" value="Submit">
 		</p>

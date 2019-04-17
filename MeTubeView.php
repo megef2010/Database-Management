@@ -55,6 +55,7 @@
 	$tag = mysql_fetch_row($tags); 
 	$username = mysql_fetch_row(mysql_query("SELECT name FROM users WHERE id = ".$result_row[1]));
 	?>
+	<br><a href="<?php echo $result_row[3].$result_row[2];?>">Download</a>
 		<br> User:
 		<?php echo $username[0]; ?>
 		<?php 
@@ -86,10 +87,8 @@
 
 		<?php echo '<a href="MeTubeSearch.php?q='.$tag[1].'">'.$tag[1].'</a>'; while ($tag = mysql_fetch_row($tags)) { echo ', '.'<a href="MeTubeSearch.php?q='.$tag[1].'">'.$tag[1].'</a>'; } ?> <br> Category:
 		<?php echo '<a href="MeTubeSearch.php?q='.$result_row[7].'">'.$result_row[7].'</a>'; ?> <br>
-		<?php if($result_row[1] == $_SESSION['userID']) { 
-	$tags = mysql_query("SELECT * FROM mediatags WHERE mediaid=".$result_row[0]); 
-	$tag = mysql_fetch_row($tags); ?>
-		<?php 
+		
+	<?php 
 		if (isset($_SESSION['userID'])) {
 			$fav = mysql_query("SELECT COUNT(*) FROM favorites WHERE mediaid=".$result_row[0]." AND userid=".$_SESSION['userID']);
 			$faved = mysql_fetch_array($fav);
@@ -108,7 +107,28 @@
 		</form>
 
 
-		<?php } } ?>
+		<?php } ?>
+		<h4>Add to Playlist</h4>
+		<form class="playlistadd" action="operation.php" method="post">
+			<select name="playlist" required>
+			<option value="">Select a playlist...</option>
+				<?php 
+				if ($playlists = mysql_query("SELECT id, name FROM playlists WHERE userid=" . $_SESSION['userID'])) {
+					while ($pl_row = mysql_fetch_row($playlists)) {
+				?>
+				<option value="<?php echo $pl_row[0]; ?>"><?php echo $pl_row[1]; ?></option>
+			<?php } } ?>
+			</select>
+			<input type="hidden" name="mediaid" value="<?php echo $result_row[0]; ?>"/>
+			<input type="hidden" name="action" value="playlistadd"/>
+			<input value="Add" name="submit" type="submit"/>
+	</form>
+	
+		<?php } ?>
+	
+	
+	<?php if($result_row[1] == $_SESSION['userID']) { ?>
+		
 
 
 		<h3>Edit Metadata</h3>
@@ -145,7 +165,7 @@
 else
 {
 ?>
-		<!--<meta http-equiv="refresh" content="0;url=MeTube.php"> -->
+		<meta http-equiv="refresh" content="0;url=MeTube.php">
 		<?php
 		}
 		?>
