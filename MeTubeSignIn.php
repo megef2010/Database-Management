@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>MeTube/Search</title>
+	<title>MeTube/SignIn</title>
 	<link rel="stylesheet" type="text/css" href="MeTube.css">
 </head>
 

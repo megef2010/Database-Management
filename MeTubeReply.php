@@ -8,14 +8,18 @@
 <body>
 
 	<?php include 'MeTube_GlobalHeader.php'; 
-	include_once "function.php";
-	if(!isset($_GET['id'])) {
-		echo '<meta http-equiv="refresh" content="0;url=MeTube.php">';
-	 } ?>
+	if(isloggedin(true)) { 
+	$mes=$_GET['id'];
+	if(mysql_result(mysql_query("SELECT COUNT(*) FROM messages WHERE id='$mes'"),0) == 0) {
+		echo "Error: That message does not exist.";
+	} else if(!isowner('message', $_GET['id'])) {
+		echo "Error: You are not allowed to view that message.";
+	} else { ?>
+	
    <br><br>
-   <!-- todo: verify session user is receiver -->
    <?php
-    $mes=$_GET['id'];
+    
+
     $senderid=mysql_result(mysql_query("SELECT sendid FROM messages WHERE id=$mes"),0);
     $sender=mysql_result(mysql_query("SELECT name FROM users WHERE id=$senderid"),0);
 	$subject=mysql_result(mysql_query("SELECT subject FROM messages WHERE id=$mes"),0);?>
@@ -35,5 +39,6 @@
     <input type="submit" value="Send">
    </form>
    </div>
+	<?php } } ?>
 </body>
 </html>

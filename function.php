@@ -51,11 +51,13 @@ function upload_error( $result ) {
 function printcategorybox( $category ) {
 	if($category == NULL) {
 		echo "<h3>Uncategorized</h3>";
+		$sqlq = "SELECT id, title, description FROM media WHERE (category='' OR category IS NULL)";
 	} else {
-		echo "<h3>".$category."</h3>"; 
+		echo "<h3>".$category."</h3>";
+		$sqlq = "SELECT id, title, description FROM media WHERE category='$category'";
 	}
 	echo '<div id="CategoryScroll">';
-	$sqlq = "SELECT id, title, description FROM media WHERE category='$category'";
+	;
 	if ( $result = mysql_query( $sqlq ) ) {
 		echo "<table>";
 		while ( $col = mysql_fetch_row( $result ) ) { //Creates a loop to loop through results
@@ -81,12 +83,27 @@ function isowner( $type, $id ) {
 		case 'media':
 			$result = mysql_result(mysql_query("SELECT userid FROM media WHERE id=" . $id),0);
 			return $result == $_SESSION['userID'];
+		case 'comment':
+			$result = mysql_result(mysql_query("SELECT userid FROM comments WHERE id=" . $id),0);
+			return $result == $_SESSION['userID'];
 		default:
 			return false;
 				
 	}
-		
-	//You can write your own functions here.
 }
+//Check if user is signed in.
+// Returns true if signed in.
+// If $redirect = true redirect to login page if not signed in.
+function isloggedin($redirect)
+{
+	if(isset($_SESSION['userID']))
+	{
+		return true;
+	} else if ($redirect) {
+		header( 'Location: MeTubeSignIn.php' , true, 302 );
+	}
+	return false;
+}
+
 
 ?>

@@ -8,14 +8,9 @@
 </head>
 
 <body>
-	<?php include 'MeTube_GlobalHeader.php'; 
-	include_once "function.php";
-  
-	if(isset($_SESSION['userID'])) {
-	} 	
-	else { 
-		echo '<meta http-equiv="refresh" content="0;url=MeTube.php">';
-	 } ?>
+	<?php include 'MeTube_GlobalHeader.php';   
+	if(isloggedin(true)) { ?>
+
 
 	<br><br>
 	<h2>New Message</h2>
@@ -30,7 +25,7 @@
 
 		</form>
 	</div>
-
+<?php } ?>
 </body>
 
 </html>

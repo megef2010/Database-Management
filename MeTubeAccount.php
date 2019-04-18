@@ -7,8 +7,7 @@
 </head>
 
 <body>
-	<?php include 'MeTube_GlobalHeader.php'; 
-	include_once "function.php";?>
+	<?php include 'MeTube_GlobalHeader.php'; ?>
 	<?php
 	if ( isset( $_GET[ 'id' ] ) ) {
 		$id = mysql_real_escape_string( $_GET[ 'id' ] );
@@ -87,15 +86,13 @@
 
 				<div id="MesScroll">
 					<?php
-					$query = "SELECT messages.id, messages.text, messages.sendid FROM messages INNER JOIN users ON messages.recvid=users.id WHERE messages.recvid='$id'";
+					$query = "SELECT messages.id, messages.subject, messages.text, messages.sendid FROM messages INNER JOIN users ON messages.recvid=users.id WHERE messages.recvid='$id'";
 					if ( $results = mysql_query( $query ) ) {
 						echo '<table>';
 						while ( $row = mysql_fetch_row( $results ) ) {
-							$secondq = "SELECT users.name FROM users WHERE users.id=".$row[2];
+							$secondq = "SELECT users.name FROM users WHERE users.id=".$row[3];
 							$sender = mysql_result(mysql_query( $secondq ),0);
-							echo '<a href="MeTubeReply.php?id=$id" target="_blank">';
-							echo '<tr><h4>From: ' . $sender . '</h4></tr><tr>' . $row[ 1 ] . '</tr>';
-							echo '</a>';
+							echo "<tr><td>From: " . $sender . "</td></tr><tr><td><a href=\"MeTubeReply.php?id=".$row[0]."\" target=\"_blank\">" . $row[ 1 ] . "</a></td></tr>";
 						}
 						echo '</table>';
 					}

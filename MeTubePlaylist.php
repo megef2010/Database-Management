@@ -29,7 +29,7 @@
 			<?php echo "</tr>"; }
 			echo "</table>";
 			echo '</div>';
-		} else if(isset($_SESSION['userID'])) { ?>
+		} else if(isloggedin(true)) { ?>
 			
 	<h2>Manage Playlists</h2>
 	<h4>Create Playlist</h4>
