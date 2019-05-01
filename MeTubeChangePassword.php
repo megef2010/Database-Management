@@ -12,6 +12,9 @@
 	<?php if(@$_GET['err'] == 1) {
 	echo 'Passwords do not match.';
 	}?>
+	<?php if(@$_GET['err'] == 2) {
+	echo 'Password changed successfully.';
+	}?>
 	<p><form class="newpass" action="operation.php" align="center" method="post">
 		New Password <input type="password" name="password" required><br><br>
 		Confirm New Password <input type="password" name="conpassword" required><br><br>
