@@ -44,8 +44,6 @@ if ( isset( $_POST[ 'action' ] ) ) {
 				$result = mysql_fetch_array( mysql_query( "SELECT COUNT(*) FROM users WHERE name = '$username'" ) );
 			
 				if ( $result[ 0 ] == '1' ) {
-					session_unset();
-					session_destroy();
 					$redirect = 'MeTubeCreate.php?err=1';
 					break;
 				}
@@ -53,8 +51,6 @@ if ( isset( $_POST[ 'action' ] ) ) {
 				break;
 			}
 			else {
-				session_unset();
-				session_destroy();
 				$redirect = 'MeTubeCreate.php?err=2';
 				break;	
 			}
@@ -258,12 +254,11 @@ if ( isset( $_POST[ 'action' ] ) ) {
 				if ( isset( $_SESSION[ 'userID' ] ) ) {
 					$userid = $_SESSION[ 'userID' ];
 					mysql_query("UPDATE user SET password= '$password' WHERE id = '$userid'");
+					$redirect = 'MeTubeChangePassword.php?err=2';
 				}
 				break;
 			}
 			else {
-				session_unset();
-				session_destroy();
 				$redirect = 'MeTubeChangePassword.php?err=1';
 				break;
 			}
