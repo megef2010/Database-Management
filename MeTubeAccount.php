@@ -29,7 +29,8 @@
 	<form class="passchange" action="MeTubeChangePassword.php">
 		<input type="submit" name="submit" value="Change Password"/>
 	<?php }
-		else { ?>
+		else { 
+			if ( isset( $_SESSION[ 'userID' ] ) ) {?>
 			<form class="contact" action="operation.php" method="post">
 				<?php
 		      			if ( mysql_query("SELECT COUNT(*) FROM usercontacts WHERE userid=". $_SESSION[ 'userID' ] . " AND contactid='$id'") != 0 ) {?>
@@ -43,7 +44,7 @@
 						<input type="submit" name="submit" value="Remove From Contacts"/>
 					<?php } ?>
 			</form>
-		<?php} }
+		<?php} } }
 	else { 
 		echo '<meta http-equiv="refresh" content="0;url=MeTube.php">';
 	 } ?>
