@@ -204,6 +204,18 @@ form.search input[type=text]{
 	overflow: hidden;
 	overflow-y: scroll;
 }
+#Sub {
+	width: 15%;
+	float: left;
+	padding: 10px;
+}
+
+#SubScroll {
+	background-color: lightgray;
+	height: 400px;
+	overflow: hidden;
+	overflow-y: scroll;
+}
 #Fav {
 	width: 15%;
 	float: left;
