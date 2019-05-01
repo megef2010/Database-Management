@@ -24,6 +24,7 @@ if ( isset( $_POST[ 'action' ] ) ) {
 				$redirect = 'MeTubeSignIn.php?err=1';
 				break;
 			}
+			
 
 			$results = mysql_fetch_array( mysql_query( "SELECT id, name FROM users WHERE name='$username'" ) );
 
@@ -39,28 +40,25 @@ if ( isset( $_POST[ 'action' ] ) ) {
 			$conpass = md5( $_POST[ 'conpassword' ] );
 			$description = mysql_real_escape_string( $_POST[ 'description' ] );
 			
-			if ( $password === $conpass ) {
+			if ( $password == $conpass ) {
+				$result = mysql_fetch_array( mysql_query( "SELECT COUNT(*) FROM users WHERE name = '$username'" ) );
+			
+				if ( $result[ 0 ] == '1' ) {
+					session_unset();
+					session_destroy();
+					$redirect = 'MeTubeCreate.php?err=1';
+					break;
+				}
+				mysql_query( "INSERT INTO users (name, password, description) VALUES ('$username', '$password', '$description')" );
+				break;
+			}
+			else {
 				session_unset();
 				session_destroy();
 				$redirect = 'MeTubeCreate.php?err=2';
-				break;
+				break;	
 			}
-
-			$result = mysql_fetch_array( mysql_query( "SELECT COUNT(*) FROM users WHERE name = '$username'" ) );
 			
-			if ( $result[ 0 ] == '1' ) {
-				session_unset();
-				session_destroy();
-				$redirect = 'MeTubeCreate.php?err=1';
-				break;
-			}
-
-			$result = mysql_fetch_array( mysql_query( "SELECT COUNT(*) FROM users WHERE name = '$username' AND password = '$password'" ) );
-
-			
-			
-			mysql_query( "INSERT INTO users (name, password, description) VALUES ('$username', '$password', '$description')" );
-			break;
 		case 'media_upload':
 			if ( isset( $_SESSION[ 'userID' ] ) ) {
 				$username = $_SESSION[ 'username' ];
@@ -251,6 +249,24 @@ if ( isset( $_POST[ 'action' ] ) ) {
 			}
 			$redirect = "MeTubePlaylist.php?id=" . $playlistid;
 			break;
+		case 'newpass':
+			$password = md5( $_POST[ 'password' ] );
+			$conpass = md5( $_POST[ 'conpassword' ] );
+			
+			if ( $password == $conpass ) {
+				
+				if ( isset( $_SESSION[ 'userID' ] ) ) {
+					$userid = $_SESSION[ 'userID' ];
+					mysql_query("UPDATE user SET password= '$password' WHERE id = '$userid'");
+				}
+				break;
+			}
+			else {
+				session_unset();
+				session_destroy();
+				$redirect = 'MeTubeChangePassword.php?err=1';
+				break;
+			}
 		default:
 			$redirect = 'MeTube.php';
 	}
