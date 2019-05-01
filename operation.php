@@ -262,6 +262,18 @@ if ( isset( $_POST[ 'action' ] ) ) {
 				$redirect = 'MeTubeChangePassword.php?err=1';
 				break;
 			}
+		case 'addcontacts':
+			$contact = $_POST[ 'contact' ];
+			$user = $_SESSION[ 'userID' ];
+			mysql_query("INSERT INTO usercontacts (userid, contactid) VALUES ('$user', '$contact')");
+			$redirect = 'MeTubeAccount.php';
+			break;
+		case 'addcontacts':
+			$contact = $_POST[ 'contact' ];
+			$user = $_SESSION[ 'userID' ];
+			mysql_query("DELETE FROM usercontacts WHERE userid='$user' AND contactid='$contact'");
+			$redirect = 'MeTubeAccount.php';
+			break;
 		default:
 			$redirect = 'MeTube.php';
 	}
