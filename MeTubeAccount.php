@@ -26,6 +26,8 @@
 		<input type="hidden" name="action" value="profile"/>
 		<input value="Update Description" name="submit" type="submit"/>
 	</form>
+	<form class="passchange" action="MeTubeChangePassword.php">
+		<input type="submit" name="submit" value="Change Password">
 	<?php } }
 	else { 
 		echo '<meta http-equiv="refresh" content="0;url=MeTube.php">';
