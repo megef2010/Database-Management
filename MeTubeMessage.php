@@ -18,7 +18,7 @@
 	<div id="newMessage">
 		<form class="newMessage" action="operation.php" method="post">
 			<select name="to" required>
-				<option value="">To...</option>
+				<option value="Contacts">To...</option>
 				<?php 
 				if ($contacts = mysql_query("SELECT users.name FROM users LEFT JOIN usercontacts ON userid=". $_SESSION['userID'] ."WHERE users.id=usercontacts.contactid")) {
 					while ($con_row = mysql_fetch_row($contacts)) {
