@@ -268,7 +268,7 @@ if ( isset( $_POST[ 'action' ] ) ) {
 			mysql_query("INSERT INTO usercontacts (userid, contactid) VALUES ('$user', '$contact')");
 			$redirect = 'MeTubeAccount.php';
 			break;
-		case 'addcontacts':
+		case 'removecontacts':
 			$contact = $_POST[ 'contact' ];
 			$user = $_SESSION[ 'userID' ];
 			mysql_query("DELETE FROM usercontacts WHERE userid='$user' AND contactid='$contact'");
