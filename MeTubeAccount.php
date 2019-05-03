@@ -33,10 +33,14 @@
 			if ( isset( $_SESSION[ 'userID' ] ) ) {?>
 			<form class="contact" action="operation.php" method="post">
 				<?php
+<<<<<<< HEAD
 
 		      			if ( @mysql_result(mysql_query("SELECT COUNT(*) FROM usercontacts WHERE userid=". $_SESSION[ 'userID' ] . " AND contactid='$id'"), 0) != 0 ) {?>
 
 
+=======
+		      			if ( mysql_result(mysql_query("SELECT COUNT(*) FROM usercontacts WHERE userid=". $_SESSION[ 'userID' ] . " AND contactid=$id"), 0) ) {?>
+>>>>>>> origin/notemplate-test
 						
 						<input type="hidden" name="action" value="removecontacts"/>
 						<input type="hidden" name="contact" value="<?php echo '$id'; ?>"/>
