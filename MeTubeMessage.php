@@ -20,7 +20,7 @@
 			<select name="to" required>
 				<option value="Contacts">To...</option>
 				<?php 
-				if ($contacts = mysql_query("SELECT users.name FROM users LEFT JOIN contacts ON userid=". $_SESSION['userID'] ."WHERE users.id=contacts.contactid")) {
+				if ($contacts = mysql_query("SELECT users.name FROM users LEFT JOIN contacts ON userid=". $_SESSION['userID'] ." WHERE users.id=contacts.contactid")) {
 					while ($con_row = mysql_fetch_row($contacts)) {
 				?>
 				<option value="<?php echo $con_row[0]; ?>">
