@@ -44,7 +44,7 @@
 						<input type="submit" name="submit" value="Remove From Contacts"/>
 					<?php } ?>
 			</form>
-		<?php} } }
+		<?php} } 
 	else { 
 		echo '<meta http-equiv="refresh" content="0;url=MeTube.php">';
 	 } ?>
