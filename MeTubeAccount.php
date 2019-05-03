@@ -33,14 +33,14 @@
 			if ( isset( $_SESSION[ 'userID' ] ) ) {?>
 			<form class="contact" action="operation.php" method="post">
 				<?php
-		      			if ( mysql_result(mysql_query("SELECT COUNT(*) FROM usercontacts WHERE userid=". $_SESSION[ 'userID' ] . " AND contactid='$id'"), 0) != 0 ) {?>
+		      			if ( @mysql_result(mysql_query("SELECT COUNT(*) FROM usercontacts WHERE userid=". $_SESSION[ 'userID' ] . " AND contactid='$id'"), 0) != 0 ) {?>
 						<input type="hidden" name="action" value="addcontacts"/>
-						<input type="hidden" name="contact" value="<?php echo '$id'; ?>"/>
+						<input type="hidden" name="contact" value="<?php echo $id; ?>"/>
 						<input type="submit" name="submit" value="Add To Contacts"/>
 					<?php }
 		      			else { ?>
 						<input type="hidden" name="action" value="removecontacts"/>
-						<input type="hidden" name="contact" value="<?php echo '$id'; ?>"/>
+						<input type="hidden" name="contact" value="<?php echo $id; ?>"/>
 						<input type="submit" name="submit" value="Remove From Contacts"/>
 					<?php } ?>
 			</form>

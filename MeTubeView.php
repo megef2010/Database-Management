@@ -39,7 +39,7 @@
 			<?php echo $result_row[3].$result_row[2];?>
 		</p>
 		<video width="480" height="360" controls>
-			<source src="<?php echo $result_row[ 3 ] . $result_row[ 2 ]; ?>" type="<?php $result_row[4]; ?>">
+			<source src="<?php echo $result_row[ 3 ] . $result_row[ 2 ]; ?>" type="<?php echo $result_row[4]; ?>">
 		</video>
 
 

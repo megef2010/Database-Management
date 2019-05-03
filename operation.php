@@ -62,13 +62,13 @@ if ( isset( $_POST[ 'action' ] ) ) {
 				//Create Directory if doesn't exist
 				if ( !file_exists( 'uploads/' ) ) {
 					mkdir( 'uploads/' );
-					chmod( 'uploads/', 0744 );
+					chmod( 'uploads/', 0755 );
 				}
 
 				$dirfile = 'uploads/' . $username . '/';
 				if ( !file_exists( $dirfile ) ) {
-					mkdir( $dirfile, 0744 );
-					chmod( $dirfile, 0744 );
+					mkdir( $dirfile, 0755 );
+					chmod( $dirfile, 0755 );
 				}
 
 				if ( $_FILES[ "file" ][ "error" ] > 0 ) {
@@ -93,7 +93,7 @@ if ( isset( $_POST[ 'action' ] ) ) {
 								$queryresult = mysql_query( $insert )
 								or die( "Insert into Media error in media_upload_process.php " . mysql_error() );
 								$result = "0";
-								chmod( $upfile, 0644 );
+								chmod( $upfile, 0655 );
 								$mediaid = mysql_insert_id();
 							}
 						} else {
